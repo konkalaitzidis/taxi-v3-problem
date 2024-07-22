@@ -16,6 +16,7 @@ To get started, follow these steps:
     ```
 
 2. Set up a Virtual Environment. Create and activate a Virtual Environment for managing dependencies (recommended). Replace `name_of_venv` with your desired environment name.
+
     Linux/macOS:
     ```sh
     python -m venv name_of_venv
