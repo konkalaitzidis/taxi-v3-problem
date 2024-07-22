@@ -12,7 +12,7 @@ To get started, follow these steps:
     git clone https://github.com/konkalaitzidis/taxi-v3-problem.git
     ```
     ```sh
-    cd taxi-v3-solution
+    cd taxi-v3-problem
     ```
 
 2. Create and activate a venv or Virtual Environment (recommended) where name_of_venv is the name you wish to give to the environment:
