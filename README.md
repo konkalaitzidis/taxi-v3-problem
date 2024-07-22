@@ -7,9 +7,7 @@ This repository contains a solution to the taxi-v3 toy problem, which is a class
 
 To get started, follow these steps:
 
-1. ### Clone the Repository
-
-Open your terminal and navigate to a directory of your choice. Then clone the repository with:
+1. Clone the Repository. Open your terminal and navigate to a directory of your choice. Then clone the repository with:
     ```sh
     git clone https://github.com/konkalaitzidis/taxi-v3-problem.git
     ```
@@ -17,9 +15,7 @@ Open your terminal and navigate to a directory of your choice. Then clone the re
     cd taxi-v3-problem
     ```
 
-2. ### Set up a Virtual Environment
-
-Create and activate a Virtual Environment for managing dependencies (recommended). Replace `name_of_venv` with your desired environment name.
+2. Set up a Virtual Environment. Create and activate a Virtual Environment for managing dependencies (recommended). Replace `name_of_venv` with your desired environment name.
     Linux/macOS:
     ```sh
     python -m venv name_of_venv
@@ -35,9 +31,7 @@ Create and activate a Virtual Environment for managing dependencies (recommended
     name_of_venv\Scripts\activate
     ```
 
-3. ### Install Dependencies
-
-Install the required packages by running the following command:
+3. Install Dependencies. Install the required packages by running the following command:
     ```sh
     pip install -r requirements.txt
     ```
