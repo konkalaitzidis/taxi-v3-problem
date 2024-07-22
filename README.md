@@ -20,7 +20,11 @@ To get started, follow these steps:
     python -m venv name_of_venv
     ```
     ```sh
-    source name_of_venv/bin/activate  # On Windows use `name_of_venv\Scripts\activate`
+    source name_of_venv/bin/activate 
+    ```
+    On Windows use 
+    ```sh
+    name_of_venv\Scripts\activate
     ```
 
 3. Install the required packages by running the following command:

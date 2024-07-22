@@ -2,7 +2,7 @@
 import gymnasium as gym
 import numpy as np
 import random
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 
 ##----Decode environment state----##
