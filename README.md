@@ -13,10 +13,10 @@ To get started, follow these steps:
     cd taxi-v3-solution
     ```
 
-2. Create and Activate a Virtual Environment (venv) (recommended):
+2. Create and activate a venv or Virtual Environment (recommended):
     ```sh
     python -m venv name_of_venv
-    source name_of_venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    source name_of_venv/bin/activate  # On Windows use `name_of_venv\Scripts\activate`
     ```
 
 3. Install the required packages by running the following command:
