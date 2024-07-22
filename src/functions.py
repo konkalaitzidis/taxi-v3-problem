@@ -49,9 +49,6 @@ def train_agent(env, alpha, gamma, epsilon, n_episodes, max_steps):
    
    # Initialize Q-table
    q_table = np.zeros((env.observation_space.n, env.action_space.n)) 
-   
-   # Create lists to store episode and total reward
-   episodes, rewards = [], []
 
    # Training
    for episode in range(n_episodes):
@@ -80,9 +77,6 @@ def train_agent(env, alpha, gamma, epsilon, n_episodes, max_steps):
 
          if done or truncated:
             break
-
-      episodes.append(episode)
-      rewards.append(total_reward)
       
       if episode % 100 == 0: # Print every 100 episodes
          print(f"Total reward {total_reward} for episode: {episode}")
@@ -114,52 +108,3 @@ def test_agent(env, max_steps, q_table):
          print(f"Test episode finished! Total reward: {total_reward}")
       else:
          print("Test will not be performed.")
-
-
-#----Plot training results----##
-def plot_results(episodes, rewards):
-   # Ask user if they want to plot the results
-   plot_results = input("Do you want to plot the training results? (Y/n): ")
-
-   if plot_results == "Y":
-      # Plot training 
-      plt.plot(episodes, rewards)
-      plt.xlabel('Episode')
-      plt.ylabel('Total Reward')
-      plt.title('Training Success')
-      plt.show()
-   else:
-      print("Training results will not be plotted.")
-
-# def plot_results(episodes, rewards, window=100):
-#     # Ask user if they want to plot the results
-#     plot_results = input("Do you want to plot the training results? (Y/n): ").lower()
-
-#     if plot_results == "y":
-#         # Calculate smoothed rewards
-#         smoothed_rewards = np.convolve(rewards, np.ones(window)/window, mode='valid')
-
-#         # Create subplots
-#         fig, ax = plt.subplots(2, 1, figsize=(12, 8))
-
-#         # Plot raw rewards
-#         ax[0].plot(episodes, rewards, color='blue', alpha=0.3, label='Raw Rewards')
-#         ax[0].plot(episodes[:len(smoothed_rewards)], smoothed_rewards, color='red', label=f'Smoothed Rewards ({window}-episode window)')
-#         ax[0].set_xlabel('Episode')
-#         ax[0].set_ylabel('Total Reward')
-#         ax[0].set_title('Training Rewards')
-#         ax[0].legend()
-
-#         # Calculate and plot running average
-#         running_avg = np.cumsum(rewards) / (np.arange(len(rewards)) + 1)
-#         ax[1].plot(episodes, running_avg, color='green', label='Running Average')
-#         ax[1].set_xlabel('Episode')
-#         ax[1].set_ylabel('Average Reward')
-#         ax[1].set_title('Running Average Reward')
-#         ax[1].legend()
-
-#         # Adjust layout
-#         plt.tight_layout()
-#         plt.show()
-#     else:
-#         print("Training results will not be plotted.")
