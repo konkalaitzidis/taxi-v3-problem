@@ -24,12 +24,22 @@ def main():
     q_table, episodes, rewards = train_agent(env, alpha, gamma, epsilon, n_episodes, max_steps)
 
 
+    #TODO improve the plotting of the results
     # Plot training resutls
     plot_results(episodes, rewards)
 
 
-    # Run test
+    # # Example usage
+    # episodes = list(range(10000))
+    # rewards = np.random.normal(0, 1, 10000).cumsum()  # Example data
+    # plot_results(episodes, rewards)
+
+
+    # Test agent
     test_agent(env, max_steps, q_table)
+
+
+    #TODO add other things like analysis??
 
 
 if __name__ == "__main__":

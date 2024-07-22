@@ -1,10 +1,11 @@
+# Imports
 import gymnasium as gym
 import numpy as np
 import random
-import matplotlib.pyplot as plt
+import matplotlib as plt
 
 
-#----Decode environment state----##
+##----Decode environment state----##
 def decode_state(obs):
     taxi_row = obs // 25
     taxi_col = (obs % 25) // 5
@@ -13,7 +14,7 @@ def decode_state(obs):
     return taxi_row, taxi_col, pass_loc, dest_idx
 
 
-##-------------------------------------##
+##----Show environment state----##
 def show_state(step, env, obs, reward):
     ansi_state = env.render()
     taxi_row, taxi_col, pass_loc, dest_idx = env.unwrapped.decode(obs)
@@ -25,12 +26,12 @@ def show_state(step, env, obs, reward):
     dest_idx_meaning = destinations[dest_idx]
 
     array_state = [taxi_row, taxi_col, pass_loc, dest_idx]
-    print(f"Step {step}: {array_state} -> (Taxi is located in Row {taxi_row}, Column {taxi_col}. "
-          f"Passenger location is {pass_loc_meaning} and destination is {dest_idx_meaning})\nReward: {reward}")
+    print(f"Step {step}: {array_state} -> (Taxi is located in Row {taxi_row} - Column {taxi_col}. "
+          f"The passenger's location is {pass_loc_meaning} and destination is {dest_idx_meaning})\nReward: {reward}")
     print(ansi_state)
 
 
-##-------------------------------------##
+##----Initialize environment----##
 def initialize_environment(env_name="Taxi-v3"):
     env = gym.make(env_name, render_mode="ansi")
     obs, info = env.reset()
@@ -41,8 +42,10 @@ def initialize_environment(env_name="Taxi-v3"):
     return env
 
 
-##-------------------------------------##
+##----Train agent----##
 def train_agent(env, alpha, gamma, epsilon, n_episodes, max_steps):
+
+   print("\nTraining in progress :) ")
    
    # Initialize Q-table
    q_table = np.zeros((env.observation_space.n, env.action_space.n)) 
@@ -88,7 +91,7 @@ def train_agent(env, alpha, gamma, epsilon, n_episodes, max_steps):
    return q_table, episodes, rewards
 
 
-##-------------------------------------##
+##----Test agent----##
 def test_agent(env, max_steps, q_table):
    # Ask user if they want to proceed with the test
    proceed_test = input("Do you want to proceed with the test? (Y/n): ")
@@ -108,12 +111,12 @@ def test_agent(env, max_steps, q_table):
          if terminated or truncated:
             break
 
-         print(f"Total reward during test: {total_reward}")
+         print(f"Test episode finished! Total reward: {total_reward}")
       else:
          print("Test will not be performed.")
 
 
-##-------------------------------------##
+#----Plot training results----##
 def plot_results(episodes, rewards):
    # Ask user if they want to plot the results
    plot_results = input("Do you want to plot the training results? (Y/n): ")
